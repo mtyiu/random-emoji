@@ -12,8 +12,8 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-offset-4 col-sm-4">
-					<div id="emoji">&nbsp;</div>
+				<div class="col-sm-offset-4 col-sm-4 text-center">
+					<img src="emoji/emoji_u1f600.svg" id="emoji" style="width: 80%; cursor: pointer;" />
 					<div class="btn btn-success btn-block btn-lg" id="btn-next">
 						再抽一次
 					</div>
@@ -23,15 +23,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(function() {
-				var emojis = ['😄', '😂', '😅', '😆', '😇', '😍', '😝', '😎', '🤓', '🤗', '😏', '😔', '😣', '😤', '😡', '😳', '😱', '😨', '😪', '🤥', '😴', '🤧', '🤒', '😷', '😕', '😶', '😯', '😑'];
 				var $emoji = $('#emoji');
-				$('#btn-next').click(function() {
-					var index = Math.floor(Math.random() * emojis.length);
-					$emoji.html(emojis[index]);
-				})
-				$(window).resize(function() {
-					$emoji.css({ fontSize: $emoji.width() + 'px' });
-				}).resize();
+				$('#btn-next, #emoji').click(function() {
+					var index = Math.floor(Math.random() * 45);
+					if (index < 10) index = '0' + index;
+					$emoji.attr('src', 'emoji/emoji_u1f6' + index + '.svg');
+				});
 			});
 		</script>
 	</body>
